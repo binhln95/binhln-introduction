@@ -1,33 +1,31 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { SideBar } from './components/sidebar'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Home } from './components/home'
+import { About } from './components/about'
+import { initializeContext, PageContext } from './context/PageContext'
+import { getSectionClass } from './components/typs'
+import { Resume } from './components/resume'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const value = initializeContext();
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <BrowserRouter>
+        <PageContext.Provider value={value}>
+          <SideBar />
+          <main className="main">
+            <section className={getSectionClass(value.currentPage!)}> 
+              <Routes>
+                <Route path="/" element={<Home />}></Route>
+                <Route path="/about" element={<About />}></Route>
+                <Route path="/resume" element={<Resume />}></Route>
+                  {/* <Route path="/upload-config" element={<UploadConfig />}></Route> */}
+              </Routes>
+            </section>
+          </main>
+        </PageContext.Provider>
+      </BrowserRouter>
     </>
   )
 }
