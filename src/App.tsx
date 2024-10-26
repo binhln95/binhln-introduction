@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { SideBar } from './components/sidebar'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Home } from './components/home'

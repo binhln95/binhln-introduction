@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { useEffect, useRef } from "react";
 import Typed, { TypedOptions } from "typed.js";
 import { PageContext } from "../context/PageContext";
