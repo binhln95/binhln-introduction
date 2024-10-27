@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { PageContext } from "../context/PageContext";
-import { useContext, useRef, useState } from "react";
+import { useContext, useState } from "react";
 import { domain } from "./typs";
 
 export const SideBar = () => {
