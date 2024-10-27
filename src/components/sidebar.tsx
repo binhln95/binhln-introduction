@@ -1,21 +1,22 @@
 import { Link } from "react-router-dom"
 import { PageContext } from "../context/PageContext";
-import { useContext } from "react";
+import { useContext, useRef, useState } from "react";
 import { domain } from "./typs";
 
 export const SideBar = () => {
     const context = useContext(PageContext);
+    const [showHeader, setShowHeader] = useState<boolean>(false);
     return (
         <>
-            <header id="header" className="header dark-background d-flex flex-column">
-                <i className="header-toggle d-xl-none bi bi-list"></i>
+            <header id="header" className={showHeader ? "header dark-background d-flex flex-column header-show" : "header dark-background d-flex flex-column"}>
+                <i className={showHeader ? "header-toggle d-xl-none bi bi-x" : "header-toggle d-xl-none bi bi-list"} onClick={() => setShowHeader(s => !s)}></i>
 
                 <div className="profile-img">
                     <img src="assets/img/avatar-binhln.jpg" alt="" className="img-fluid rounded-circle" />
                 </div>
 
                 <a className="logo d-flex align-items-center justify-content-center">
-                    {/* <img src="assets/img/logo.png" alt="" /> */}
+                    <img src="assets/img/logo.png" alt="" />
                     <h1 className="sitename">Le Ngoc Binh</h1>
                 </a>
 
