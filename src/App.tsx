@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Home } from './components/home'
 import { About } from './components/about'
 import { initializeContext, PageContext } from './context/PageContext'
-import { getSectionClass } from './components/typs'
+import { domain, getSectionClass } from './components/typs'
 import { Resume } from './components/resume'
 
 function App() {
@@ -16,9 +16,9 @@ function App() {
           <main className="main">
             <section className={getSectionClass(value.currentPage!)}> 
               <Routes>
-                <Route path="/" element={<Home />}></Route>
-                <Route path="/about" element={<About />}></Route>
-                <Route path="/resume" element={<Resume />}></Route>
+                <Route path={domain + "/"} element={<Home />}></Route>
+                <Route path={domain + "/about"} element={<About />}></Route>
+                <Route path={domain + "/resume"} element={<Resume />}></Route>
                   {/* <Route path="/upload-config" element={<UploadConfig />}></Route> */}
               </Routes>
             </section>

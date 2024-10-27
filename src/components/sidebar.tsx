@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { PageContext } from "../context/PageContext";
 import { useContext } from "react";
+import { domain } from "./typs";
 
 export const SideBar = () => {
     const context = useContext(PageContext);
@@ -28,9 +29,9 @@ export const SideBar = () => {
 
                 <nav id="navmenu" className="navmenu">
                 <ul>
-                    <li><Link to="/" className={context.currentPage == 'Home' ? 'active' : ''}><i className="bi bi-house navicon"></i>Home</Link></li>
-                    <li><Link to="/about" className={context.currentPage == 'About' ? 'active' : ''}><i className="bi bi-person navicon"></i> About</Link></li>
-                    <li><Link to="/resume" className={context.currentPage == 'Resume' ? 'active' : ''}><i className="bi bi-file-earmark-text navicon"></i> Resume</Link></li>
+                    <li><Link to={domain + "/"} className={context.currentPage == 'Home' ? 'active' : ''}><i className="bi bi-house navicon"></i>Home</Link></li>
+                    <li><Link to={domain + "/about"} className={context.currentPage == 'About' ? 'active' : ''}><i className="bi bi-person navicon"></i> About</Link></li>
+                    <li><Link to={domain + "/resume"} className={context.currentPage == 'Resume' ? 'active' : ''}><i className="bi bi-file-earmark-text navicon"></i> Resume</Link></li>
                     {/* <li><a href="#portfolio"><i className="bi bi-images navicon"></i> Portfolio</a></li>
                     <li><a href="#services"><i className="bi bi-hdd-stack navicon"></i> Services</a></li>
                     <li className="dropdown"><a href="#"><i className="bi bi-menu-button navicon"></i> <span>Dropdown</span> <i className="bi bi-chevron-down toggle-dropdown"></i></a>

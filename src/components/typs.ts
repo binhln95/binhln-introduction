@@ -18,3 +18,5 @@ export const getSectionClass = (page: ICurrentPage) => {
     }
     return className;
 }
+
+export const domain = "/binhln-introduction";
